@@ -1,7 +1,10 @@
 package com.example.flicks;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -11,6 +14,8 @@ import com.bumptech.glide.Glide;
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
 public class MovieDescription extends AppCompatActivity {
+
+    public int movieId = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +29,8 @@ public class MovieDescription extends AppCompatActivity {
         String imageUrl = getIntent().getStringExtra("MOVIE_POSTER_LOCATION");
         Double rating = getIntent().getDoubleExtra("MOVIE_RATING",0);
         Double popularity = getIntent().getDoubleExtra("POPULARITY",0);
+        movieId = getIntent().getIntExtra("MOVIE_ID",0);
+
 
 
         // create ratingbar
@@ -76,6 +83,18 @@ public class MovieDescription extends AppCompatActivity {
                 .into(poster);
 
 
+
+    }
+
+    public void playVideo(View v)
+    {
+
+        Intent intent = new Intent(v.getContext(),MovieTrailerActivity.class);
+
+        intent.putExtra("MOVIE_ID",movieId);
+
+
+        v.getContext().startActivity(intent);
 
     }
 }

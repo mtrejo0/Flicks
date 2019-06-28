@@ -142,11 +142,21 @@ public class MainActivity extends AppCompatActivity {
                     {
                         // create movie objects and remember them
                         Movie movie = new Movie(results.getJSONObject(i));
-                        movies.add(movie);
 
+
+
+
+
+
+
+
+                        movies.add(movie);
                         // notify adapter a row was added at last position
 
                         adapter.notifyItemInserted(movies.size()-1);
+
+
+
                     }
 
                     Log.i(TAG,String.format("Loaded %s movies",results.length()));
@@ -157,11 +167,45 @@ public class MainActivity extends AppCompatActivity {
 
             }
 
+
             @Override
             public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
                 logError("Failed to get data from now playing endpoint",throwable,true);
             }
         });
+
+
+//        for(int i = 0; i < movies.size();i++)
+//        {
+//            url = API_BASE_URL + String.format(" /movie/%d/videos", rvMovies.getId());
+//
+//            params = new RequestParams();
+//            // api key param put in
+//            params.put(API_KEY_PARAM, getString(R.string.api_key));
+//
+//            client.get(url, params, new JsonHttpResponseHandler(){
+//
+//
+//                @Override
+//                public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+//                    // load the results into movie list
+//                    try {
+//                        JSONObject results = response.getJSONObject("results");
+//                        String movieKey = results.getString("key");
+//                        movies.get(i).setVideoKey(movieKey);
+//
+//                    } catch (JSONException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//
+//                @Override
+//                public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+//                    logError("Failed to get data from now playing endpoint",throwable,true);
+//                }
+//            });
+//
+//        }
 
 
     }

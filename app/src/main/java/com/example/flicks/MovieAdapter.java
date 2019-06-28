@@ -112,6 +112,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
 
                     intent.putExtra("MOVIE_RATING",m.getRating());
                     intent.putExtra("POPULARITY",m.getPopularity());
+                    intent.putExtra("MOVIE_ID",m.getId());
 
 
                     // display the activity
@@ -157,6 +158,8 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolderolder, int i) {
         // get the movie data from the position
+
+
         Movie movie = movies.get(i);
         // populate the view with the movie data
 
@@ -166,23 +169,11 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
         viewHolderolder.tvOverview.setText(movie.getOverview());
 
 
-        Double rating = movie.getRating();
-        viewHolderolder.tvRating.setText(Double.toString(rating));
 
 
 
-        // maps rating to a color
-        int ratingColor;
-        if (rating < 5)
-        {
-            ratingColor = Color.rgb(255,(int)(rating/5*255),0);
-        }
-        else
-        {
-            ratingColor = Color.rgb((int)(255 - rating/5*255),255,0);
-        }
 
-        viewHolderolder.tvRating.setBackgroundColor(ratingColor);
+
 
 
         /// determine orientation
@@ -196,6 +187,25 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
         if(!isPortrait)
         {
             imageUrl = config.getImageUrl(config.getBackdropSize(),movie.getBackDropPath());
+
+
+        }
+        else
+        {
+            Double rating = movie.getRating();
+            viewHolderolder.tvRating.setText(Double.toString(rating));
+            // maps rating to a color
+            int ratingColor;
+            if (rating < 5)
+            {
+                ratingColor = Color.rgb(255,(int)(rating/5*255),0);
+            }
+            else
+            {
+                ratingColor = Color.rgb((int)(255 - rating/5*255),255,0);
+            }
+
+            viewHolderolder.tvRating.setBackgroundColor(ratingColor);
         }
 
 

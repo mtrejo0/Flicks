@@ -13,6 +13,8 @@ public class Movie {
     private String backDropPath;
     private Double rating;
     private Double popularity;
+    private Integer id;
+    private String videoKey;
 
 
     // initialize form JSON data
@@ -24,6 +26,9 @@ public class Movie {
         backDropPath = object.getString("backdrop_path");
         rating = object.getDouble("vote_average");
         popularity = object.getDouble("popularity");
+        id = object.getInt("id");
+
+
 
 
     }
@@ -50,5 +55,17 @@ public class Movie {
 
     public Double getPopularity() {
         return popularity;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getVideoKey() {
+        return videoKey;
+    }
+
+    public void setVideoKey(String videoKey) {
+        this.videoKey = videoKey;
     }
 }

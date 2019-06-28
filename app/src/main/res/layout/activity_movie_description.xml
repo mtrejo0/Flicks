@@ -51,6 +51,7 @@
         app:layout_constraintHorizontal_bias="0.423"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:onClick="playVideo"
         app:srcCompat="@android:color/holo_red_light" />
 
     <RatingBar
@@ -73,14 +74,10 @@
         android:id="@+id/tvPopularity"
         android:layout_width="109dp"
         android:layout_height="35dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="76dp"
-        android:layout_marginRight="76dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="24dp"
         android:text="Popularity: "
-        app:layout_constraintEnd_toStartOf="@+id/rbRating"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivPoster" />
 
@@ -91,4 +88,14 @@
         android:text="Rating:"
         app:layout_constraintBottom_toTopOf="@+id/rbRating"
         app:layout_constraintStart_toStartOf="@+id/rbRating" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="73dp"
+        android:layout_height="63dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivPoster"
+        app:layout_constraintEnd_toEndOf="@+id/ivPoster"
+        app:layout_constraintStart_toStartOf="@+id/ivPoster"
+        app:layout_constraintTop_toTopOf="@+id/ivPoster"
+        app:srcCompat="@android:drawable/ic_media_play" />
 </android.support.constraint.ConstraintLayout>
