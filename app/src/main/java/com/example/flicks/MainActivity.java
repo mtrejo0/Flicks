@@ -1,11 +1,15 @@
 package com.example.flicks;
 
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewParent;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.flicks.models.Config;
@@ -67,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -101,16 +106,6 @@ public class MainActivity extends AppCompatActivity {
 
 
         setupViewListener();
-
-
-
-
-
-
-
-
-
-
 
 
 

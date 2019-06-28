@@ -45,13 +45,14 @@
         app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tvRating"
         android:layout_width="40dp"
         android:layout_height="25dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="28dp"
         android:layout_marginRight="28dp"
-        android:text="tvRating"
+        android:text="Rating"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

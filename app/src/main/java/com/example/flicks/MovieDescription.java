@@ -1,7 +1,9 @@
 package com.example.flicks;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -81,6 +83,9 @@ public class MovieDescription extends AppCompatActivity {
 
 
                 .into(poster);
+
+        ConstraintLayout back = findViewById(R.id.container);
+        back.setBackgroundColor(Color.rgb(255,182,193));
 
 
 

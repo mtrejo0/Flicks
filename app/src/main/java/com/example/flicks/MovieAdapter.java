@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -72,10 +73,18 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
 
             ivPosterImage = itemView.findViewById(R.id.ivPosterImage);
             tvTitle = itemView.findViewById(R.id.tvTitle);
+
             tvOverview = itemView.findViewById(R.id.tvOverview);
+
 
             ivBackdropImage = itemView.findViewById(R.id.ivBackdropImage);
             tvRating = itemView.findViewById(R.id.tvRating);
+
+            itemView.setBackgroundColor(Color.rgb(255,182,193));
+
+
+
+
 
 
 
@@ -160,6 +169,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
         // get the movie data from the position
 
 
+
         Movie movie = movies.get(i);
         // populate the view with the movie data
 
@@ -190,23 +200,22 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
 
 
         }
+
+        Double rating = movie.getRating();
+        viewHolderolder.tvRating.setText(Double.toString(rating));
+        // maps rating to a color
+        int ratingColor;
+        if (rating < 5)
+        {
+            ratingColor = Color.rgb(255,(int)(rating/5*255),0);
+        }
         else
         {
-            Double rating = movie.getRating();
-            viewHolderolder.tvRating.setText(Double.toString(rating));
-            // maps rating to a color
-            int ratingColor;
-            if (rating < 5)
-            {
-                ratingColor = Color.rgb(255,(int)(rating/5*255),0);
-            }
-            else
-            {
-                ratingColor = Color.rgb((int)(255 - rating/5*255),255,0);
-            }
-
-            viewHolderolder.tvRating.setBackgroundColor(ratingColor);
+            ratingColor = Color.rgb((int)(255 - rating/5*255),255,0);
         }
+
+        viewHolderolder.tvRating.setBackgroundColor(ratingColor);
+
 
 
         int placeholderId = isPortrait ? R.drawable.flicks_movie_placeholder : R.drawable.flicks_backdrop_placeholder;
