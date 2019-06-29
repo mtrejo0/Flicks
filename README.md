@@ -36,7 +36,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+It was hard to know which type of variables to use and how to pass data between screens 
 
 ## Open-source libraries used
 
